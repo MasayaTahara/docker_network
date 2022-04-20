@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  centos:
+    build:
+      context: ./centos
+    tty: true
+  nginx:
+    build:
+      context: ./nginx
+    volumes:
+      - ./nginx/html:/usr/share/nginx/html
+  mysql:
+    build:
+      context: ./mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=dbpassword
